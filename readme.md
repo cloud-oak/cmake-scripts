@@ -1,15 +1,4 @@
-
-This repository contains CMake scripts for finding the `SDL2`, `SDL2_image` and
-`SDL2_ttf` libraries and headers.
-
-CMake itself comes with corresponding scripts for SDL 1.2, which hopefully in
-time will be updated for SDL2 and make this repo redundant. In the mean
-time, I'm putting them up here in case anyone else finds them useful.
-
-I've tested them on Linux and Mac OS using the Makefile and XCode targets.
-On Linux, you'll need the SDL2 development packages installed from your distro
-package manager. On Mac OS you'll need to install the development frameworks
-from the SDL website.
+This repository contains CMake scripts for finding the `SDL2`, `SDL2_image`, `SDL2_ttf`, `PortAudio` libraries and headers.
 
 ##Usage
 
@@ -17,26 +6,20 @@ from the SDL website.
 
 In order to use these scripts, you first need to tell CMake where to find them, via
 the `CMAKE_MODULE_PATH` variable. For example, if you put them in a
-subdirectory called `cmake`, then in your root `CMakeLists.txt` add the line
+subdirectory called `cmake-scripts`, then in your root `CMakeLists.txt` add the line
 
 ```cmake
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${project_SOURCE_DIR}/cmake")
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${project_SOURCE_DIR}/cmake-scripts")
 ```
 
 where `project` is the name of your project. You can then use the packages
 themselves by adding
 
 ```cmake
-find_package(SDL2 REQUIRED)
-find_package(SDL2_Image REQUIRED)
-find_package(SDL2_ttf REQUIRED)
+find_package( SDL2 REQUIRED )
 
-include_directories(${SDL2_INCLUDE_DIR}
-                    ${SDL2_IMAGE_INCLUDE_DIR}
-                    ${SDL2_TTF_INCLUDE_DIR})
-target_link_libraries(target ${SDL2_LIBRARY}
-                             ${SDL2_IMAGE_LIBRARIES}
-                             ${SDL2_TTF_LIBRARIES})
+include_directories( ${SDL2_INCLUDE_DIR} )
+target_link_libraries(target ${SDL2_LIBRARY} )
 
 ```
 
@@ -64,10 +47,8 @@ make
 
 ##Licence
 
-I am not the original author of these scripts. I found `FindSDL2.cmake`
-after some Googling, and hacked up the `image` and `ttf` scripts from the
-SDL1 versions that come with CMake. The original scripts, and my changes,
-are released under the two-clause BSD licence.
+I am not the original author of these scripts. I forked the SDL2 CMake scripts from @tcbrindle's repo and added other CMake Scripts I found useful. License information is provided in the header comment for each cmake-script.
+All scripts are compatible with the 3-clause BSD licence.
 
 ##Bugs
 
