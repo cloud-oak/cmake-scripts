@@ -1,8 +1,8 @@
 This repository contains CMake scripts for finding the `SDL2`, `SDL2_image`, `SDL2_ttf`, `PortAudio` libraries and headers.
 
-##Usage
+## Usage
 
-###General
+### General
 
 In order to use these scripts, you first need to tell CMake where to find them, via
 the `CMAKE_MODULE_PATH` variable. For example, if you put them in a
@@ -25,7 +25,7 @@ target_link_libraries(target ${SDL2_LIBRARY} )
 
 or whatever is appropriate for your project.
 
-###mingw32 / msys
+### mingw32 / msys
 
 This section supplements ```Usage -> General``` section. You still are required
 to incorporate ```General``` configuration settings in you CMakeLists.txt.
@@ -45,12 +45,12 @@ make
 ```
 
 
-##Licence
+## Licence
 
 I am not the original author of these scripts. I forked the SDL2 CMake scripts from @tcbrindle's repo and added other CMake Scripts I found useful. License information is provided in the header comment for each cmake-script.
 All scripts are compatible with the 3-clause BSD licence.
 
-##Bugs
+## Bugs
 
 These scripts are provided in the hope that you might find them useful. They
 work for me and hopefully they'll work for you too. If you fix any
